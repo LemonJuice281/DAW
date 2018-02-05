@@ -1,4 +1,4 @@
-﻿app.service('OperationsService', function ($http) {
+﻿app.service('OperationsService', function ($http, $location) {
     vm = this;
     vm.token = "";
     vm.isAuth = false;
@@ -11,13 +11,15 @@
             Role: ""
         }
 
+    var url = $location.absUrl().split('/')[2]
+
     vm.getPlayers = function () {
-        return $http.get('http://localhost:61123/api/players/all');
+        return $http.get('http://' + url + '/api/players/all');
     };
 
     vm.login = function (user) {
         vm.user = user;
-        return $http.post('http://localhost:61123/login/user', user);
+        return $http.post('http://' + url +'/login/user', user);
     }
 
     vm.addTeam = function (team) {
@@ -29,7 +31,7 @@
 
         var req = {
             method: 'POST',
-            url: 'http://localhost:61123/api/team/add',
+            url: 'http://' + url +  '/api/team/add',
             headers: {
                 'Authorization': "Bearer " + token
             },
@@ -48,7 +50,7 @@
 
         var req = {
             method: 'DELETE',
-            url: 'http://localhost:61123/api/team/add/'+ teamName,
+            url: 'http://' + url + '/api/team/add/'+ teamName,
             headers: {
                 'Authorization': "Bearer " + token
             }
@@ -58,7 +60,7 @@
     }
 
     vm.updateUser = function (token) {
-        $http.get('http://localhost:61123/api/user/' + vm.user.UserName, {
+        $http.get('http://'+ url + '/api/user/' + vm.user.UserName, {
             headers: { 'Authorization': "Bearer " + token }
         }).then(function (data) {
             vm.user = data;
@@ -70,7 +72,7 @@
         var tokenel = document.getElementById('hidden');
         token = tokenel.innerHTML;
 
-        return $http.get('http://localhost:61123/api/team/' + country, {
+        return $http.get('http://' + url +'/api/team/' + country, {
             headers: { 'Authorization': "Bearer " + token }
         });
     }

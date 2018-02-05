@@ -1,10 +1,11 @@
-﻿app.controller('home', ['$scope', 'OperationsService', function ($scope, OperationsService) {
+﻿app.controller('home', ['$scope', '$location', 'OperationsService', function ($scope, $location, OperationsService) {
     vm = this;
     vm.home = "homeConroller";
 
     vm.players;
     vm.isVisible = false;
     vm.isAuth = false;
+
     activate();
 
     function activate() {
@@ -19,5 +20,7 @@
         });
         $('#example').DataTable();
         $('.table').DataTable();
+        var url = $location.absUrl().split('/')[2]
+        console.log(url);
     }
 }]);
