@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="libraries/angular.min.js"></script>
+    <script src="libraries/angular-route.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/Services/OperationsService.js"></script>
+    <script src="js/Home/home.js"></script>
+    <script src="js/About/about.js"></script>
+    <script src="js/Rankings/RankingController.js"></script>
+    <script src="js/Edit/edit.js"></script>
+    <script src="js/Login/LoginController.js"></script>
+    <base href="http://localhost:61123/#/">
+    <link href="js/Rankings/ranking.css" rel="stylesheet" />
+    <link rel="stylesheet" href="js/Home/home.css">
+    <link href="js/Edit/edit.css" rel="stylesheet" />
+    <link href="js/Login/Logincss.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+
+    <script>
+        $("#carousel").carousel();
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+</head>
+<body ng-app="app">
+    <div id="hidden"></div>
+    <ng-view>
+    </ng-view>
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li class="active"><a href="#!/ranking">Clasamente</a></li>
+                <li><a href="#!/edit">Editare</a></li>
+                <li><a href="#!/about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="!vm.isAuth"><a href="#!/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div id="Romania">
+        <h2>Clasament 1</h2>
+        <p>Clasamentul echipelor de fotbal din Romania:</p>
+        <div ng-if="vm.romaniaVisible" class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Numele Echipei</th>
+                        <th>Tara</th>
+                        <th>Campionat</th>
+                        <th>Loc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in vm.romaniaTeams | orderBy: 'ranking'">
+                        <td>{{x.teamName}}</td>
+                        <td>{{x.country}}</td>
+                        <td>{{x.championship}}</td>
+                        <td>{{x.ranking}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="Turcia">
+        <h2>Clasament 2</h2>
+        <p>Clasamentul echipelor de fotbal din Turcia:</p>
+        <div ng-if="vm.turkeyVisible" class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Numele Echipei</th>
+                        <th>Tara</th>
+                        <th>Campionat</th>
+                        <th>Loc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in vm.turkeyTeams | orderBy: 'ranking'">
+                        <td>{{x.teamName}}</td>
+                        <td>{{x.country}}</td>
+                        <td>{{x.championship}}</td>
+                        <td>{{x.ranking}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="Anglia">
+        <h2>Clasament 3</h2>
+        <p>Clasamentul echipelor de fotbal din Anglia:</p>
+        <div ng-if="vm.englandIsVisible" class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Numele Echipei</th>
+                        <th>Tara</th>
+                        <th>Campionat</th>
+                        <th>Loc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in vm.englandTeams | orderBy: 'ranking'">
+                        <td>{{x.teamName}}</td>
+                        <td>{{x.country}}</td>
+                        <td>{{x.championship}}</td>
+                        <td>{{x.ranking}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
